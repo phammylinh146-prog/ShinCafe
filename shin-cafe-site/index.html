@@ -135,9 +135,15 @@ section.block { padding: clamp(48px, 7vw, 88px) 0; }
 .dish h4 { font-size: 1.25rem; }
 .price { font-weight: 800; color: var(--sage-ink); white-space: nowrap; }
 .desc { margin: 0; color: var(--muted); font-size: .97rem; }
-.tags { list-style: none; padding: 0; margin: auto 0 0; display: flex; gap: 6px; }
-.tag { font-size: .78rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: var(--pink-soft); color: var(--pink-ink); }
-.tag-vegan { background: var(--sage-soft); color: var(--sage-ink); }
+.dish-ph { aspect-ratio: 4 / 3; background: var(--pink-soft); display: grid; place-items: center; }
+.ph-plate { width: 62%; aspect-ratio: 1; border-radius: 50%; padding: 7%; background: repeating-conic-gradient(var(--pink) 0 7.5deg, #fff 7.5deg 15deg); box-shadow: 0 14px 24px -16px rgba(59, 43, 46, .5); }
+.ph-well { display: block; width: 100%; height: 100%; border-radius: 50%; background: #fff; }
+.organic { font-family: var(--font-body); font-size: .75rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; background: var(--sage-soft); color: var(--sage-ink); padding: 4px 10px; border-radius: 999px; align-self: center; }
+.sub-h { font-size: 1.15rem; margin: 18px 0 0; }
+.row.row-2 { grid-template-columns: 1fr 4rem 4rem; }
+.flavours { list-style: none; margin: 14px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+.flavours li { font-weight: 700; font-size: .92rem; padding: 5px 12px; border-radius: 999px; background: var(--pink-soft); color: var(--pink-ink); }
+.card-note { margin: 8px 0 0; color: var(--muted); }
 
 /* price lists */
 .list-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; }
@@ -155,7 +161,7 @@ section.block { padding: clamp(48px, 7vw, 88px) 0; }
 .gelato-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: start; }
 .gelato-wrap img { border-radius: var(--radius); width: 100%; aspect-ratio: 1; object-fit: cover; }
 .drinks { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
-.drinks .stack { display: grid; gap: 20px; }
+.stack { display: grid; gap: 20px; align-content: start; }
 
 /* good to know */
 .know { background: var(--pink-soft); }
@@ -288,140 +294,109 @@ footer a { color: var(--ink); font-weight: 700; }
       <p><span class="fi" lang="fi">Allergioita tai erityisruokavalio? Kysy henkilökunnalta sopivasta annoksesta.</span><span class="en" lang="en">Allergies or a special diet? Ask our staff which dishes suit you.</span></p>
     </div>
     <nav class="chips" aria-label="Menu">
-      <a href="#souffle"><span class="fi" lang="fi">Soufflé-pannukakut</span><span class="en" lang="en">Soufflé pancakes</span></a>
-      <a href="#savoury"><span class="fi" lang="fi">Suolaiset</span><span class="en" lang="en">Savoury</span></a>
+      <a href="#souffle"><span class="fi" lang="fi">Soufflépannukakut</span><span class="en" lang="en">Soufflé pancakes</span></a>
       <a href="#gelato">Gelato</a>
       <a href="#coffee"><span class="fi" lang="fi">Kahvit</span><span class="en" lang="en">Coffee</span></a>
       <a href="#matcha">Matcha</a>
-      <a href="#chocolate"><span class="fi" lang="fi">Kaakao</span><span class="en" lang="en">Hot chocolate</span></a>
       <a href="#smoothies"><span class="fi" lang="fi">Smoothiet</span><span class="en" lang="en">Smoothies</span></a>
+      <a href="#chocolate"><span class="fi" lang="fi">Kaakao</span><span class="en" lang="en">Hot chocolate</span></a>
     </nav>
 
     <div class="group" id="souffle">
       <div class="group-head">
-        <h3><span class="fi" lang="fi">Soufflé-pannukakut</span><span class="en" lang="en">Soufflé pancakes</span></h3>
-        <p class="note"><span class="fi" lang="fi">Kaikki laktoosittomia. Gluteeniton versio +2,00 €.</span><span class="en" lang="en">All lactose-free. Gluten-free version +2,00 €.</span></p>
+        <h3><span class="fi" lang="fi">Soufflépannukakut</span><span class="en" lang="en">Soufflé pancakes</span></h3>
+        <p class="note"><span class="fi" lang="fi">Kaikki laktoosittomia (L). Gluteenittomat ”Clouds”-soufflépannukakut +€2.</span><span class="en" lang="en">All lactose-free (L). Gluten-free “Clouds” soufflé pancakes +€2.</span></p>
       </div>
       <div class="cards">
         <article class="dish">
           <img src="img/classic-nordic.jpg" alt="Classic Nordic" width="396" height="297" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Classic Nordic</h4><span class="price">10,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé ja kerma. Valitse maku (matcha, suklaa, mansikka tai mango) ja kastike (sekamarjahillo tai suklaa).</span><span class="en" lang="en">Soufflé with cream. Choose a flavour (matcha, chocolate, strawberry or mango) and a sauce (mixed berry jam or chocolate).</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
-          </div>
-        </article>
-        <article class="dish">
-          <img src="img/matcha-fluffy.jpg" alt="Matcha Fluffy" width="595" height="446" loading="lazy">
-          <div class="dish-body">
-            <div class="dish-top"><h4>Matcha Fluffy</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, matchaganache, 1 pallo matchagelatoa.</span><span class="en" lang="en">Soufflé, matcha ganache, 1 scoop of matcha gelato.</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
-          </div>
-        </article>
-        <article class="dish">
-          <img src="img/majestic-mango.jpg" alt="Majestic Mango" width="595" height="446" loading="lazy">
-          <div class="dish-body">
-            <div class="dish-top"><h4>Majestic Mango</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, mango, mangokerma, 1 pallo vaniljagelatoa, karamellikastike.</span><span class="en" lang="en">Soufflé, mango, mango cream, 1 scoop of vanilla gelato, caramel sauce.</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+            <div class="dish-top"><h4>Classic Nordic</h4><span class="price">€10.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, kerma (matcha, suklaa, mansikka tai mango), marjahillo/suklaa/matcha/suolakaramelli.</span><span class="en" lang="en">Soufflé pancakes, cream (matcha, chocolate, strawberry or mango), berries jams/chocolate/matcha/salted caramel.</span></p>
           </div>
         </article>
         <article class="dish">
           <img src="img/salted-caramel-banana.jpg" alt="Salted Caramelised Banana" width="595" height="446" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Salted Caramelised Banana</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, karamellisoitu banaani, 1 pallo vaniljagelatoa, banaanileipä, suolakaramellikastike.</span><span class="en" lang="en">Soufflé, caramelised banana, 1 scoop of vanilla gelato, banana bread, salted caramel sauce.</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
-          </div>
-        </article>
-        <article class="dish">
-          <img src="img/chocolate-lover.jpg" alt="Chocolate Lover" width="595" height="446" loading="lazy">
-          <div class="dish-body">
-            <div class="dish-top"><h4>Chocolate Lover</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, suklaamousse, 1 pallo suklaagelatoa, suklaaganache, suklaakastike, hasselpähkinärouhe.</span><span class="en" lang="en">Soufflé, chocolate mousse, 1 scoop of chocolate gelato, chocolate ganache, chocolate sauce, hazelnut crunch.</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+            <div class="dish-top"><h4>Salted Caramelised Banana</h4><span class="price">€14.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, karamellisoitu banaani, banaanileipägelato/-kerma, suolakaramellikastike.</span><span class="en" lang="en">Soufflé pancakes, caramelised banana, banana bread gelato/cream, salted caramel sauce.</span></p>
           </div>
         </article>
         <article class="dish">
           <img src="img/very-berries.jpg" alt="Very Berries" width="476" height="357" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Very Berries</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, mansikkakastike, 1 pallo mansikkagelatoa, mansikkaganache, tuoreita marjoja.</span><span class="en" lang="en">Soufflé, strawberry sauce, 1 scoop of strawberry gelato, strawberry ganache, fresh berries.</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+            <div class="dish-top"><h4>Very Berries</h4><span class="price">€14.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, mansikkahillo/-kerma, gelato, tuoreet mansikat, mustikat ja vadelmat.</span><span class="en" lang="en">Soufflé pancakes, strawberry jam/cream, gelato, fresh strawberries, blueberries, raspberries.</span></p>
           </div>
         </article>
         <article class="dish">
-          <img src="img/matcha-tiramisu.jpg" alt="Matcha Tiramisu" width="396" height="297" loading="lazy">
+          <img src="img/matcha-fluffy.jpg" alt="Matcha Fluffy" width="595" height="446" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Matcha Tiramisu</h4><span class="price">15,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, matcha-tiramisukerma, matchajauhe, matchagelato, matcha-shotti, kermavaahto, tuore mansikka.</span><span class="en" lang="en">Soufflé, matcha tiramisu cream, matcha powder, matcha gelato, a matcha shot, whipped cream, fresh strawberry.</span></p>
-            <ul class="tags"><li class="tag tag-vegan"><span class="fi" lang="fi">Vegaaninen</span><span class="en" lang="en">Vegan</span></li></ul>
+            <div class="dish-top"><h4>Matcha Fluffy</h4><span class="price">€15.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, matchaganache/-kerma, gelato, matchajauhe.</span><span class="en" lang="en">Soufflé pancakes, matcha ganache/cream, gelato, matcha powder.</span></p>
           </div>
         </article>
         <article class="dish">
-          <img src="img/creme-brulee.jpg" alt="Crème Brûlée" width="476" height="357" loading="lazy">
+          <img src="img/majestic-mango.jpg" alt="Majestic Mango" width="595" height="446" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Crème Brûlée</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, crème brûlée -kreemi ja karamellisoitu sokeripinta, 1 pallo gelatoa (vanilja tai mansikka), tuoreita marjoja ja mangoa.</span><span class="en" lang="en">Soufflé, crème brûlée custard with a caramelised sugar top, 1 scoop of gelato (vanilla or strawberry), fresh berries and mango.</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+            <div class="dish-top"><h4>Majestic Mango</h4><span class="price">€14.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, mangokerma, mangogelato, tuoreet mangokuutiot, suolakaramellikastike.</span><span class="en" lang="en">Soufflé pancakes, mango cream, mango gelato, fresh mango cubes, salted caramel sauce.</span></p>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/chocolate-lover.jpg" alt="Chocolate Lover" width="595" height="446" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Chocolate Lover</h4><span class="price">€14.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, suklaakerma, suklaakastike, gelato.</span><span class="en" lang="en">Soufflé pancakes, chocolate cream, chocolate sauce, gelato.</span></p>
+          </div>
+        </article>
+        <article class="dish">
+          <div class="dish-ph" aria-hidden="true"><span class="ph-plate"><span class="ph-well"></span></span></div>
+          <div class="dish-body">
+            <div class="dish-top"><h4>Dubai Chocolate</h4><span class="price">€16.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, pistaasiganache, suklaakastike, mansikat, pistaasirouhe, kataifi, gelato.</span><span class="en" lang="en">Soufflé pancakes, pistachio ganache, chocolate sauce, strawberries, pistachios crush, kataifi, gelato.</span></p>
           </div>
         </article>
         <article class="dish">
           <img src="img/biscoff.jpg" alt="Biscoff" width="595" height="446" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Biscoff</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, Biscoff-karamellikastike, Biscoff-murua, Lotus-keksi, kermavaahto, vadelma, 1 pallo gelatoa (suklaa tai vanilja).</span><span class="en" lang="en">Soufflé, Biscoff caramel drizzle, Biscoff crumble, Lotus cookie, whipped cream, raspberry, 1 scoop of gelato (chocolate or vanilla).</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+            <div class="dish-top"><h4>Biscoff</h4><span class="price">€14.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, Biscoff-kerma, -kastike ja -murut, gelato.</span><span class="en" lang="en">Soufflé pancakes, biscoff cream, sauce, crumbs, gelato.</span></p>
           </div>
         </article>
         <article class="dish">
           <img src="img/tiramisu.jpg" alt="Tiramisu" width="396" height="297" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Tiramisu</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, tiramisukerma, suklaajauhe, 1 pallo gelatoa (suklaa tai vanilja), espresso.</span><span class="en" lang="en">Soufflé, tiramisu cream, chocolate powder, 1 scoop of gelato (chocolate or vanilla), a single espresso.</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+            <div class="dish-top"><h4>Tiramisu</h4><span class="price">€15.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, gelato, mascarponekerma, suklaajauhe, espresso.</span><span class="en" lang="en">Soufflé pancakes, gelato, mascarpone cream, chocolate powder, single espresso.</span></p>
           </div>
         </article>
         <article class="dish">
           <img src="img/ube.jpg" alt="Ube" width="446" height="334" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Ube</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, ubekerma, ubekastike, 1 pallo ubegelatoa, kermavaahto, tuoreita mustikoita.</span><span class="en" lang="en">Soufflé, ube cream, ube sauce, 1 scoop of ube gelato, whipped cream, fresh blueberries.</span></p>
-            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+            <div class="dish-top"><h4>Ube</h4><span class="price">€14.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, ubekerma, ubegelato, ubesiirappi.</span><span class="en" lang="en">Soufflé pancakes, ube cream, ube gelato, ube syrup.</span></p>
           </div>
         </article>
-      </div>
-    </div>
-
-    <div class="group" id="savoury">
-      <div class="group-head">
-        <h3><span class="fi" lang="fi">Suolaiset</span><span class="en" lang="en">Savoury</span></h3>
-        <p class="note"><span class="fi" lang="fi">Pannukakkuannokset laktoosittomia, gluteeniton versio +2,00 €.</span><span class="en" lang="en">Pancake dishes are lactose-free. Gluten-free version +2,00 €.</span></p>
-      </div>
-      <div class="cards">
         <article class="dish">
-          <img src="img/bacon-eggs.jpg" alt="Bacon &amp; Eggs" width="396" height="297" loading="lazy">
+          <img src="img/creme-brulee.jpg" alt="Crème Brûlée" width="476" height="357" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Bacon &amp; Eggs</h4><span class="price">12,50 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Soufflé, pekoni ja aito vaahterasiirappi. Lisäksi halutessasi hollandaisekastiketta tai vaahterasiirappia.</span><span class="en" lang="en">Soufflé, bacon and pure maple syrup. Add hollandaise sauce or extra maple syrup if you like.</span></p>
-            
+            <div class="dish-top"><h4>Crème Brûlée</h4><span class="price">€14.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Crème brûlée -kerma, karamellikastike, tuoreita hedelmiä.</span><span class="en" lang="en">Crème brûlée cream, caramel sauce, mix fresh fruits.</span></p>
           </div>
         </article>
         <article class="dish">
           <img src="img/english-breakfast.jpg" alt="English Breakfast" width="396" height="297" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>English Breakfast</h4><span class="price">14,00 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Pannukakut, uunipavut, grillattu tomaatti, herkkusieni, hollandaisekastike, oregano ja timjami, salaattia. Lisäksi halutessasi pekonia, fetaa tai puolikas avokado.</span><span class="en" lang="en">Pancakes, baked beans, grilled tomato, mushroom, hollandaise sauce, oregano and thyme, salad. Add bacon, feta or half an avocado if you like.</span></p>
-            
+            <div class="dish-top"><h4>English Breakfast</h4><span class="price">€16.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, uunipavut, grillattu tomaatti, herkkusieni, hollandaisekastike. Valitse proteiini: 3 pekonisiivua / avokado / halloumi.</span><span class="en" lang="en">Soufflé pancakes, baked beans, grilled tomato, mushroom, hollandaise sauce. Choice of protein: 3 strips of bacon / avocado / halloumi.</span></p>
           </div>
         </article>
         <article class="dish">
-          <img src="img/garlic-brioche-bun.jpg" alt="Garlic Brioche Bun" width="446" height="334" loading="lazy">
+          <img src="img/bacon-eggs.jpg" alt="Bacon &amp; Egg" width="396" height="297" loading="lazy">
           <div class="dish-body">
-            <div class="dish-top"><h4>Garlic Brioche Bun</h4><span class="price">5,99 €</span></div>
-            <p class="desc"><span class="fi" lang="fi">Briossisämpylä, tuorejuusto, valkosipuli, sipuli. Laktoositon.</span><span class="en" lang="en">Brioche bun, cream cheese, garlic, onion. Lactose-free.</span></p>
-            
+            <div class="dish-top"><h4>Bacon &amp; Egg</h4><span class="price">€14.00</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflépannukakut, 4 pekonisiivua, kaksi kananmunaa, sose, vaahterasiirappi.</span><span class="en" lang="en">Soufflé pancakes, 4 strips of bacon, two eggs, purée, maple syrup.</span></p>
           </div>
         </article>
       </div>
@@ -429,20 +404,24 @@ footer a { color: var(--ink); font-weight: 700; }
 
     <div class="group" id="gelato">
       <div class="group-head">
-        <h3>Gelato</h3>
-        <p class="note"><span class="fi" lang="fi">Teemme gelaton itse.</span><span class="en" lang="en">We make our own gelato.</span></p>
+        <h3><span class="fi" lang="fi">Gelato ja affogato</span><span class="en" lang="en">Gelato and affogato</span></h3>
+        <p class="note"><span class="fi" lang="fi">Gluteeniton ja laktoositon (L).</span><span class="en" lang="en">Gluten-free and lactose-free (L).</span></p>
       </div>
       <div class="gelato-wrap">
         <img src="img/gelato.jpg" alt="Shin Cafe gelato" width="596" height="596" loading="lazy">
-        <div class="list-card">
-          <h3><span class="fi" lang="fi">Gelato ja affogato</span><span class="en" lang="en">Gelato and affogato</span></h3>
-          <ul class="rows">
-<li class="row"><span class="nm">Vanilla<small><span class="fi" lang="fi">Klassinen, kermainen vanilja.</span><span class="en" lang="en">Classic, creamy vanilla.</span></small></span><span class="p">5,00</span></li>
-<li class="row"><span class="nm">Matcha<small><span class="fi" lang="fi">Laadukas matcha, jossa on mieto kitkeryys.</span><span class="en" lang="en">Premium matcha with a gentle bitterness.</span></small></span><span class="p">5,00</span></li>
-<li class="row"><span class="nm">Chocolate<small><span class="fi" lang="fi">Täyteläinen suklaa.</span><span class="en" lang="en">Rich chocolate.</span></small></span><span class="p">5,00</span></li>
-<li class="row"><span class="nm">Strawberry<small><span class="fi" lang="fi">Raikas mansikka.</span><span class="en" lang="en">Fresh strawberry.</span></small></span><span class="p">5,00</span></li>
-<li class="row"><span class="nm">Affogato<small><span class="fi" lang="fi">Kuuma espresso itse tehdyn gelaton päälle.</span><span class="en" lang="en">Hot espresso poured over our gelato.</span></small></span><span class="p">8,00</span></li>
-          </ul>
+        <div class="stack">
+          <div class="list-card">
+            <h3>Gelato</h3>
+            <ul class="rows">
+              <li class="row"><span class="nm"><span class="fi" lang="fi">1 pallo</span><span class="en" lang="en">1 scoop</span></span><span class="p">€5.00</span></li>
+              <li class="row"><span class="nm"><span class="fi" lang="fi">2 palloa</span><span class="en" lang="en">2 scoops</span></span><span class="p">€9.00</span></li>
+            </ul>
+            <ul class="flavours" aria-label="Maut / Flavours"><li><span class="fi" lang="fi">Vanilja</span><span class="en" lang="en">Vanilla</span></li><li><span class="fi" lang="fi">Mango</span><span class="en" lang="en">Mango</span></li><li><span class="fi" lang="fi">Mansikka</span><span class="en" lang="en">Strawberry</span></li><li><span class="fi" lang="fi">Matcha (luomu)</span><span class="en" lang="en">Matcha (Organic)</span></li><li><span class="fi" lang="fi">Ube</span><span class="en" lang="en">Ube</span></li><li><span class="fi" lang="fi">Banaanileipä</span><span class="en" lang="en">Banana Bread</span></li><li><span class="fi" lang="fi">Suklaa</span><span class="en" lang="en">Chocolate</span></li></ul>
+          </div>
+          <div class="list-card">
+            <h3>Affogato <span class="p">€8.00</span></h3>
+            <p class="card-note"><span class="fi" lang="fi">1 pallo jäätelöä + yksi espresso</span><span class="en" lang="en">1 scoop of ice cream + single shot espresso</span></p>
+          </div>
         </div>
       </div>
     </div>
@@ -450,52 +429,64 @@ footer a { color: var(--ink); font-weight: 700; }
     <div class="group" id="drinks">
       <div class="group-head">
         <h3><span class="fi" lang="fi">Juomat</span><span class="en" lang="en">Drinks</span></h3>
+        <p class="note"><span class="fi" lang="fi">Kaikki juomat gluteenittomia ja laktoosittomia (L).</span><span class="en" lang="en">All drinks are gluten-free and lactose-free (L).</span></p>
       </div>
       <div class="drinks">
-        <div class="list-card" id="coffee">
-          <h3><span class="fi" lang="fi">Kahvit</span><span class="en" lang="en">Coffee</span></h3>
-          <ul class="rows">
-            <li class="row row-sl rows-head" aria-hidden="true"><span></span><span class="p">S</span><span class="p">L</span></li>
-<li class="row row-sl"><span class="nm">Espresso</span><span class="p">3,00</span><span class="p">3,50</span></li>
-<li class="row row-sl"><span class="nm">Espresso Macchiato<small><span class="fi" lang="fi">Espresso ja maitovaahtoa.</span><span class="en" lang="en">Espresso with a spoon of milk foam.</span></small></span><span class="p">4,00</span><span class="p">5,50</span></li>
-<li class="row row-sl"><span class="nm">Latte</span><span class="p">4,80</span><span class="p">5,50</span></li>
-<li class="row row-sl"><span class="nm">Latte Banana Bread<small><span class="fi" lang="fi">Latte banaanileipäsiirapilla.</span><span class="en" lang="en">Latte with banana bread syrup.</span></small></span><span class="p">5,00</span><span class="p">6,00</span></li>
-<li class="row row-sl"><span class="nm">Cappuccino</span><span class="p">4,90</span><span class="p">5,50</span></li>
-<li class="row row-sl"><span class="nm">Flat White<small><span class="fi" lang="fi">Tupla-ristretto ja mikrovaahto.</span><span class="en" lang="en">Double ristretto with microfoam.</span></small></span><span class="p">4,90</span><span class="p">5,50</span></li>
-<li class="row row-sl"><span class="nm">Americano</span><span class="p">4,20</span><span class="p">4,00</span></li>
-<li class="row row-sl"><span class="nm">Vietnamese Coffee<small><span class="fi" lang="fi">Vahva kahvi ja makeutettu kondensoitu maito.</span><span class="en" lang="en">Strong coffee over sweetened condensed milk.</span></small></span><span class="p">5,50</span><span class="p">6,50</span></li>
-<li class="row row-sl"><span class="nm">Vietnamese Salt Coffee<small><span class="fi" lang="fi">Vietnamilainen kahvi ja suolainen kermavaahto.</span><span class="en" lang="en">Vietnamese coffee with salted cream foam.</span></small></span><span class="p">–</span><span class="p">6,50</span></li>
-<li class="row row-sl"><span class="nm">Ube Latte<small><span class="fi" lang="fi">Ube-latte, espresso ja kermavaahto.</span><span class="en" lang="en">Purple yam latte with espresso and whipped cream.</span></small></span><span class="p p-one">6,00</span></li>
-<li class="row row-sl"><span class="nm">Tea<small><span class="fi" lang="fi">Valitse laatu.</span><span class="en" lang="en">Choose your blend.</span></small></span><span class="p p-one">3,00</span></li>
-          </ul>
+        <div class="stack">
+          <div class="list-card" id="coffee">
+            <h3><span class="fi" lang="fi">Kahvit</span><span class="en" lang="en">Coffee</span></h3>
+            <ul class="rows">
+<li class="row"><span class="nm">Espresso</span><span class="p">€3.00</span></li>
+<li class="row"><span class="nm">Espresso Macchiato</span><span class="p">€4.00</span></li>
+<li class="row"><span class="nm">Latte</span><span class="p">€4.80</span></li>
+<li class="row"><span class="nm">Cappuccino</span><span class="p">€4.90</span></li>
+<li class="row"><span class="nm">Flat White</span><span class="p">€4.90</span></li>
+<li class="row"><span class="nm">Americano</span><span class="p">€4.20</span></li>
+<li class="row"><span class="nm">Vietnamese Coffee</span><span class="p">€5.50</span></li>
+<li class="row"><span class="nm">Ube Latte</span><span class="p">€6.00</span></li>
+<li class="row"><span class="nm">Latte Banana Bread</span><span class="p">€5.00</span></li>
+            </ul>
+            <h4 class="sub-h"><span class="fi" lang="fi">Vain jäisenä</span><span class="en" lang="en">Ice only</span></h4>
+            <ul class="rows">
+<li class="row"><span class="nm">Vietnamese Salt Coffee</span><span class="p">€6.50</span></li>
+<li class="row"><span class="nm">Tiramisu Coffee Latte</span><span class="p">€8.00</span></li>
+<li class="row"><span class="nm">Biscoff Coffee Latte</span><span class="p">€8.00</span></li>
+            </ul>
+          </div>
+          <div class="list-card" id="smoothies">
+            <h3><span class="fi" lang="fi">Smoothiet</span><span class="en" lang="en">Smoothies</span></h3>
+            <ul class="rows">
+<li class="row"><span class="nm">Berry Breeze</span><span class="p">€7.50</span></li>
+<li class="row"><span class="nm">Tropical Green Energizer</span><span class="p">€7.50</span></li>
+<li class="row"><span class="nm">Peanut Butter Power</span><span class="p">€6.50</span></li>
+<li class="row"><span class="nm">Garden Boost</span><span class="p">€8.00</span></li>
+            </ul>
+          </div>
         </div>
         <div class="stack">
           <div class="list-card" id="matcha">
-            <h3>Matcha</h3>
+            <h3>Matcha <span class="organic"><span class="fi" lang="fi">Luomu</span><span class="en" lang="en">Organic</span></span></h3>
             <ul class="rows">
-<li class="row"><span class="nm">Matcha Latte<small><span class="fi" lang="fi">Seremoniallinen matcha ja höyrytetty maito.</span><span class="en" lang="en">Ceremonial matcha whisked with steamed milk.</span></small></span><span class="p">6,50</span></li>
-<li class="row"><span class="nm">Mango Matcha Latte<small><span class="fi" lang="fi">Mangosose ja matcha latte.</span><span class="en" lang="en">Mango purée under a matcha latte.</span></small></span><span class="p">6,50</span></li>
-<li class="row"><span class="nm">Strawberry Matcha Latte<small><span class="fi" lang="fi">Mansikkahillo, maito ja matcha.</span><span class="en" lang="en">Strawberry compote, milk and matcha.</span></small></span><span class="p">6,50</span></li>
-<li class="row"><span class="nm">Ube Matcha Latte<small><span class="fi" lang="fi">Ube ja matcha.</span><span class="en" lang="en">Ube and matcha.</span></small></span><span class="p">6,50</span></li>
-<li class="row"><span class="nm">Cold Foam Matcha Latte<small><span class="fi" lang="fi">Jäinen matcha ja kylmä maitovaahto.</span><span class="en" lang="en">Iced matcha topped with cold foam.</span></small></span><span class="p">7,50</span></li>
-<li class="row"><span class="nm">Hot Chocolate Matcha<small><span class="fi" lang="fi">Kaakao ja matcha.</span><span class="en" lang="en">Hot chocolate and matcha.</span></small></span><span class="p">7,50</span></li>
-<li class="row"><span class="nm">Banana Bread Matcha Latte<small><span class="fi" lang="fi">Matcha latte banaanileipäsiirapilla.</span><span class="en" lang="en">Matcha latte with banana bread syrup.</span></small></span><span class="p">7,50</span></li>
+              <li class="row row-2 rows-head" aria-hidden="true"><span></span><span class="p"><span class="fi" lang="fi">Kuuma</span><span class="en" lang="en">Hot</span></span><span class="p"><span class="fi" lang="fi">Jäinen</span><span class="en" lang="en">Ice</span></span></li>
+<li class="row row-2"><span class="nm">Matcha Latte</span><span class="p">€6.50</span><span class="p">€7.50</span></li>
+<li class="row row-2"><span class="nm">Mango Matcha Latte</span><span class="p">€6.50</span><span class="p">€7.50</span></li>
+<li class="row row-2"><span class="nm">Strawberry Matcha Latte</span><span class="p">€6.50</span><span class="p">€7.50</span></li>
+<li class="row row-2"><span class="nm">Cold Foam Matcha Latte</span><span class="p">€7.50</span><span class="p">€8.50</span></li>
+<li class="row row-2"><span class="nm">Banana Bread Matcha Latte</span><span class="p">€7.50</span><span class="p">€8.50</span></li>
+<li class="row row-2"><span class="nm">Ube Matcha Latte</span><span class="p">€6.50</span><span class="p">€7.50</span></li>
+<li class="row row-2"><span class="nm">Hot Chocolate Matcha</span><span class="p">€7.50</span><span class="p">€8.50</span></li>
+            </ul>
+            <h4 class="sub-h"><span class="fi" lang="fi">Vain jäisenä</span><span class="en" lang="en">Ice only</span></h4>
+            <ul class="rows">
+<li class="row"><span class="nm">Biscoff Matcha (Organic)</span><span class="p">€8.50</span></li>
+<li class="row"><span class="nm">Tiramisu Matcha Latte</span><span class="p">€8.50</span></li>
             </ul>
           </div>
           <div class="list-card" id="chocolate">
             <h3><span class="fi" lang="fi">Kaakao</span><span class="en" lang="en">Hot chocolate</span></h3>
             <ul class="rows">
-              <li class="row row-sl rows-head" aria-hidden="true"><span></span><span class="p">S</span><span class="p">L</span></li>
-<li class="row row-sl"><span class="nm">Classic Hot Chocolate<small><span class="fi" lang="fi">Kermavaahdolla.</span><span class="en" lang="en">With whipped cream.</span></small></span><span class="p">5,50</span><span class="p">6,50</span></li>
-<li class="row row-sl"><span class="nm">Cloudy Hot Chocolate<small><span class="fi" lang="fi">Vaahtokarkeilla.</span><span class="en" lang="en">With marshmallow puff.</span></small></span><span class="p">6,50</span><span class="p">7,50</span></li>
-            </ul>
-          </div>
-          <div class="list-card" id="smoothies">
-            <h3><span class="fi" lang="fi">Smoothiet</span><span class="en" lang="en">Smoothies</span> <span class="p">6,50 €</span></h3>
-            <ul class="rows">
-<li class="row row-plain"><span class="nm">Berry Breeze<small><span class="fi" lang="fi">Mansikka, mustikka, banaani, jogurtti, hunaja.</span><span class="en" lang="en">Strawberry, blueberry, banana, yogurt, honey.</span></small></span></li>
-<li class="row row-plain"><span class="nm">Tropical Green Energizer<small><span class="fi" lang="fi">Pinaatti, mango, ananas, banaani, kookosvesi.</span><span class="en" lang="en">Spinach, mango, pineapple, banana, coconut water.</span></small></span></li>
-<li class="row row-plain"><span class="nm">Peanut Butter Power<small><span class="fi" lang="fi">Banaani, maapähkinävoi, kaakao, kaurajuoma, hunaja.</span><span class="en" lang="en">Banana, peanut butter, cocoa, oat drink, honey.</span></small></span></li>
+<li class="row"><span class="nm">Classic Hot Chocolate<small><span class="fi" lang="fi">kermavaahdolla</span><span class="en" lang="en">with whipped cream</span></small></span><span class="p">€5.50</span></li>
+<li class="row"><span class="nm">Matcha Hot Chocolate<small><span class="fi" lang="fi">kermavaahdolla</span><span class="en" lang="en">with whipped cream</span></small></span><span class="p">€7.50</span></li>
             </ul>
           </div>
         </div>
@@ -509,12 +500,12 @@ footer a { color: var(--ink); font-weight: 700; }
     <div class="sec-head"><h2 id="know-h"><span class="fi" lang="fi">Hyvä tietää</span><span class="en" lang="en">Good to know</span></h2></div>
     <div class="grid3">
       <div>
-        <h3><span class="fi" lang="fi">Gluteeniton ja vegaaninen</span><span class="en" lang="en">Gluten-free and vegan</span></h3>
-        <p><span class="fi" lang="fi">Jokaisesta soufflé-annoksesta saa gluteenittoman version (+2,00 €). Matcha Tiramisu on vegaaninen.</span><span class="en" lang="en">Every soufflé dish comes in a gluten-free version (+2,00 €). Matcha Tiramisu is vegan.</span></p>
+        <h3><span class="fi" lang="fi">Gluteeniton ja laktoositon</span><span class="en" lang="en">Gluten-free and lactose-free</span></h3>
+        <p><span class="fi" lang="fi">Kaikki soufflépannukakut ovat laktoosittomia. Gluteenittomat ”Clouds”-soufflépannukakut +€2. Kaikki juomat ja gelato ovat gluteenittomia ja laktoosittomia.</span><span class="en" lang="en">All soufflé pancakes are lactose-free. Gluten-free “Clouds” soufflé pancakes +€2. All drinks and gelato are gluten-free and lactose-free.</span></p>
       </div>
       <div>
         <h3><span class="fi" lang="fi">Itse tehty</span><span class="en" lang="en">Homemade</span></h3>
-        <p><span class="fi" lang="fi">Teemme gelaton ja smoothiet itse. Affogatossa kuuma espresso kaadetaan gelaton päälle.</span><span class="en" lang="en">We make our own gelato and smoothies. For affogato, we pour hot espresso over the gelato.</span></p>
+        <p><span class="fi" lang="fi">Teemme gelaton ja smoothiet itse. Affogato on pallo gelatoa ja yksi espresso.</span><span class="en" lang="en">We make our own gelato and smoothies. Affogato is a scoop of gelato with a single shot of espresso.</span></p>
       </div>
     </div>
   </div>
