@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="fi" data-lang="fi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shin Cafe Helsinki</title>
+<meta name="description" content="Shin Cafe Hermanninrannassa: japanilaiset soufflépannukakut, itse tehty gelato, kahvi ja matcha. Ma–Pe 10.30–21, La–Su 12–20. Hermannin rantatie 25A, 00580 Helsinki.">
+<meta property="og:title" content="Shin Cafe Helsinki">
+<meta property="og:description" content="Soufflépannukakut, gelato, kahvi ja matcha. Hermannin rantatie 25A, Helsinki.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://shin.fi/">
+<meta property="og:image" content="https://shin.fi/img/hero.jpg">
+<link rel="icon" type="image/png" href="favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"CafeOrCoffeeShop","name":"Shin Cafe","url":"https://shin.fi/","image":"https://shin.fi/img/hero.jpg","telephone":"+358503054957","email":"hello@shincafe.net","servesCuisine":["Soufflé pancakes","Coffee","Gelato"],"address":{"@type":"PostalAddress","streetAddress":"Hermannin rantatie 25A","postalCode":"00580","addressLocality":"Helsinki","addressCountry":"FI"},"openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"10:30","closes":"21:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":["Saturday","Sunday"],"opens":"12:00","closes":"20:00"}],"sameAs":["https://www.instagram.com/shincafehelsinki/","https://www.facebook.com/61584552097683/"]}
+</script>
+<style>
+:root {
+  /* Layout: one long column. Split hero (text + striped-plate photo), menu cards in a flexible grid, price lists in two columns, visit card at the end. */
+  --bg: #FFF7EC;
+  --card: #FFFFFF;
+  --ink: #3B2B2E;
+  --muted: #74636A;
+  --pink: #EB95AE;
+  --pink-soft: #FCE6ED;
+  --pink-ink: #9B3E5E;
+  --sage: #8EADB1;
+  --sage-soft: #E6EFEE;
+  --sage-ink: #35636A;
+  --line: #EEDFD2;
+  --font-display: "Fredoka", "Nunito", ui-rounded, system-ui, sans-serif;
+  --font-body: "Nunito", ui-rounded, system-ui, -apple-system, "Segoe UI", sans-serif;
+  --radius: 18px;
+  --wrap: 1120px;
+  color-scheme: light;
+}
+html[data-lang="fi"] .en { display: none !important; }
+html[data-lang="en"] .fi { display: none !important; }
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; scroll-padding-top: 84px; }
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+body { margin: 0; background: var(--bg); color: var(--ink); font-family: var(--font-body); font-size: 1.0625rem; line-height: 1.55; -webkit-font-smoothing: antialiased; }
+img { max-width: 100%; height: auto; display: block; }
+a { color: var(--sage-ink); }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--pink-ink); outline-offset: 3px; border-radius: 8px; }
+h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 600; line-height: 1.1; margin: 0; text-wrap: balance; }
+.wrap { width: min(var(--wrap), 100% - 32px); margin-inline: auto; }
+.price, .p, .hours td { font-variant-numeric: tabular-nums; }
+
+/* header */
+.top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 92%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--line); }
+.top .wrap { display: flex; align-items: center; gap: 20px; min-height: 68px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--ink); }
+.brand img { width: 52px; }
+.brand span { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; }
+.top nav { display: flex; gap: 22px; margin-left: auto; }
+.top nav a { color: var(--ink); text-decoration: none; font-weight: 700; }
+.top nav a:hover { color: var(--pink-ink); }
+.lang { display: flex; border: 1.5px solid var(--ink); border-radius: 999px; overflow: hidden; }
+.lang button { font: 800 .8rem/1 var(--font-body); letter-spacing: .04em; border: 0; background: transparent; color: var(--ink); padding: 8px 12px; cursor: pointer; }
+.lang button[aria-pressed="true"] { background: var(--ink); color: var(--bg); }
+.call { font-weight: 800; text-decoration: none; background: var(--pink); color: var(--ink); padding: 9px 16px; border-radius: 999px; white-space: nowrap; }
+.call:hover { background: #E5809E; }
+
+/* hero */
+.hero { padding: clamp(36px, 6vw, 72px) 0 clamp(28px, 4vw, 48px); }
+.hero .wrap { display: grid; grid-template-columns: 1.05fr .95fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+.eyebrow { margin: 0 0 14px; font-weight: 800; font-size: .85rem; letter-spacing: .14em; text-transform: uppercase; color: var(--pink-ink); }
+.hero h1 { font-size: clamp(3.2rem, 8vw, 5.6rem); font-weight: 700; letter-spacing: -.01em; }
+.hero h1 .cafe { color: var(--pink); }
+.lead { font-size: clamp(1.1rem, 1.6vw, 1.25rem); max-width: 34ch; margin: 18px 0 22px; }
+.status { display: inline-flex; align-items: center; gap: 10px; background: var(--card); border: 1px solid var(--line); border-radius: 999px; padding: 8px 16px 8px 12px; font-weight: 700; margin: 0 0 24px; }
+.status::before { content: ""; width: 10px; height: 10px; border-radius: 50%; background: var(--sage); flex: none; }
+.status.is-open::before { background: #3E9B6E; box-shadow: 0 0 0 4px #D9F0E3; }
+.status.is-closed::before { background: #C9567A; box-shadow: 0 0 0 4px var(--pink-soft); }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+.btn { display: inline-flex; align-items: center; justify-content: center; min-height: 48px; padding: 0 22px; border-radius: 999px; font-weight: 800; text-decoration: none; border: 2px solid var(--ink); color: var(--ink); background: transparent; }
+.btn:hover { background: var(--card); }
+.btn.primary { background: var(--ink); color: var(--bg); }
+.btn.primary:hover { background: #55403F; }
+.plate { width: min(100%, 470px); margin-inline: auto; aspect-ratio: 1; border-radius: 50%; padding: clamp(14px, 2.4vw, 24px);
+  background: repeating-conic-gradient(var(--sage) 0 7.5deg, #fff 7.5deg 15deg);
+  box-shadow: 0 30px 50px -28px rgba(59, 43, 46, .45), 0 0 0 1px rgba(59, 43, 46, .06); }
+.plate-well { width: 100%; height: 100%; border-radius: 50%; background: #fff; padding: clamp(6px, 1vw, 10px); }
+.plate-well img { width: 100%; height: 100%; object-fit: cover; border-radius: 50%; }
+
+/* facts */
+.facts { padding-bottom: clamp(40px, 6vw, 72px); }
+.facts .wrap { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); }
+.fact { padding: 22px 26px; }
+.fact + .fact { border-left: 1px solid var(--line); }
+.fact h2 { font-family: var(--font-body); font-size: .8rem; font-weight: 800; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.fact p { margin: 0; font-weight: 700; font-size: 1.1rem; }
+
+/* sections */
+section.block { padding: clamp(48px, 7vw, 88px) 0; }
+.sec-head { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 12px 32px; margin-bottom: 22px; }
+.sec-head h2 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); }
+.sec-head p { margin: 0; color: var(--muted); max-width: 46ch; }
+.chips { display: flex; gap: 8px; overflow-x: auto; padding: 4px 2px 10px; margin-bottom: 18px; scrollbar-width: thin; }
+.chips a { flex: none; text-decoration: none; color: var(--ink); font-weight: 700; font-size: .95rem; padding: 8px 15px; border-radius: 999px; background: var(--card); border: 1px solid var(--line); }
+.chips a:hover { border-color: var(--pink); background: var(--pink-soft); }
+
+.group { padding-top: 34px; }
+.group-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 6px 18px; margin-bottom: 18px; }
+.group-head h3 { font-size: clamp(1.6rem, 3vw, 2rem); }
+.note { margin: 0; color: var(--muted); font-weight: 600; }
+
+.cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 20px; }
+.dish { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); overflow: hidden; display: flex; flex-direction: column; }
+.dish img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; }
+.dish-body { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+.dish-top { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.dish h4 { font-size: 1.25rem; }
+.price { font-weight: 800; color: var(--sage-ink); white-space: nowrap; }
+.desc { margin: 0; color: var(--muted); font-size: .97rem; }
+.tags { list-style: none; padding: 0; margin: auto 0 0; display: flex; gap: 6px; }
+.tag { font-size: .78rem; font-weight: 800; padding: 3px 10px; border-radius: 999px; background: var(--pink-soft); color: var(--pink-ink); }
+.tag-vegan { background: var(--sage-soft); color: var(--sage-ink); }
+
+/* price lists */
+.list-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px 24px; }
+.list-card h3 { font-size: 1.5rem; display: flex; justify-content: space-between; align-items: baseline; gap: 12px; }
+.list-card h3 .p { font-family: var(--font-body); font-size: 1rem; font-weight: 800; color: var(--sage-ink); }
+.rows { list-style: none; margin: 12px 0 0; padding: 0; }
+.row { display: grid; grid-template-columns: 1fr auto; gap: 4px 18px; padding: 11px 0; border-top: 1px dashed var(--line); align-items: baseline; }
+.row-sl { grid-template-columns: 1fr 3.4rem 3.4rem; }
+.row-plain { grid-template-columns: 1fr; }
+.rows-head { border-top: 0; padding: 0 0 4px; font-size: .78rem; font-weight: 800; letter-spacing: .1em; color: var(--muted); }
+.nm { font-weight: 700; }
+.nm small { display: block; font-weight: 400; color: var(--muted); font-size: .92rem; }
+.p { font-weight: 800; text-align: right; }
+.p-one { grid-column: 2 / 4; }
+.gelato-wrap { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 6fr); gap: 20px; align-items: start; }
+.gelato-wrap img { border-radius: var(--radius); width: 100%; aspect-ratio: 1; object-fit: cover; }
+.drinks { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; align-items: start; }
+.drinks .stack { display: grid; gap: 20px; }
+
+/* good to know */
+.know { background: var(--pink-soft); }
+.know .grid3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; margin-top: 8px; }
+.know h3 { font-size: 1.35rem; margin-bottom: 8px; }
+.know p { margin: 0; max-width: 34ch; }
+
+/* gallery */
+.gallery { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+.gallery figure { margin: 0; }
+.gallery img { width: 100%; aspect-ratio: 2 / 3; object-fit: cover; border-radius: var(--radius); }
+
+/* visit */
+.visit .wrap { display: grid; grid-template-columns: 1.1fr .9fr; gap: 20px; }
+.visit-card { background: var(--ink); color: var(--bg); border-radius: var(--radius); padding: clamp(26px, 4vw, 44px); display: flex; flex-direction: column; gap: 18px; }
+.visit-card h2 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); color: var(--pink); }
+.addr { font-family: var(--font-display); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 500; line-height: 1.25; margin: 0; }
+.visit-card .btn { border-color: var(--bg); color: var(--bg); align-self: start; }
+.visit-card .btn.primary { background: var(--pink); color: var(--ink); border-color: var(--pink); }
+.visit-card .btn.primary:hover { background: #E5809E; }
+.contact { display: grid; grid-template-columns: auto 1fr; gap: 8px 18px; margin: 6px 0 0; }
+.contact dt { color: #CDBDB9; font-weight: 700; }
+.contact dd { margin: 0; font-weight: 700; }
+.contact a { color: var(--bg); }
+.hours-card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); padding: clamp(22px, 3vw, 32px); }
+.hours-card h3 { font-size: 1.6rem; margin-bottom: 12px; }
+.hours { width: 100%; border-collapse: collapse; }
+.hours th, .hours td { padding: 10px 12px; border-top: 1px dashed var(--line); text-align: left; font-weight: 600; }
+.hours td { text-align: right; font-weight: 800; }
+.hours tr.today th, .hours tr.today td { background: var(--pink-soft); color: var(--pink-ink); }
+.hours tr.today th { border-radius: 10px 0 0 10px; }
+.hours tr.today td { border-radius: 0 10px 10px 0; }
+.walkin { margin: 16px 0 0; color: var(--muted); font-weight: 600; }
+
+footer { padding: 36px 0 48px; border-top: 1px solid var(--line); margin-top: clamp(40px, 6vw, 72px); }
+footer .wrap { display: flex; flex-wrap: wrap; align-items: center; gap: 16px 28px; color: var(--muted); font-size: .95rem; }
+footer img { width: 64px; }
+footer .social { display: flex; gap: 16px; margin-left: auto; }
+footer a { color: var(--ink); font-weight: 700; }
+
+@media (max-width: 880px) {
+  .hero .wrap, .visit .wrap { grid-template-columns: 1fr; }
+  .plate { width: min(86%, 400px); order: -1; }
+  .drinks, .gelato-wrap { grid-template-columns: 1fr; }
+  .know .grid3 { grid-template-columns: 1fr; gap: 20px; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 680px) {
+  .top nav { display: none; }
+  .lang { margin-left: auto; }
+  .brand span { display: none; }
+  .facts .wrap { grid-template-columns: 1fr; }
+  .fact + .fact { border-left: 0; border-top: 1px solid var(--line); }
+  .call .num { display: none; }
+}
+@media (min-width: 681px) { .call .short { display: none; } }
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#top"><img src="img/logo.png" alt="Shin Cafe" width="320" height="264"><span>Shin Cafe</span></a>
+    <nav aria-label="Main">
+      <a href="#menu">Menu</a>
+      <a href="#visit"><span class="fi" lang="fi">Löydä meidät</span><span class="en" lang="en">Find us</span></a>
+    </nav>
+    <div class="lang" role="group" aria-label="Kieli / Language">
+      <button type="button" data-set="fi" aria-pressed="true">FI</button>
+      <button type="button" data-set="en" aria-pressed="false">EN</button>
+    </div>
+    <a class="call" href="tel:+358503054957"><span class="num">050 305 4957</span><span class="short"><span class="fi" lang="fi">Soita</span><span class="en" lang="en">Call</span></span></a>
+  </div>
+</header>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow"><span class="fi" lang="fi">Soufflé · Kahvi · Matcha</span><span class="en" lang="en">Soufflé · Coffee · Matcha</span></p>
+      <h1>Shin <span class="cafe">Cafe</span></h1>
+      <p class="lead"><span class="fi" lang="fi">Japanilaisia soufflépannukakkuja, itse tehtyä gelatoa, kahvia ja matchaa Hermanninrannassa. Jokainen pannukakku tehdään vasta tilauksesta.</span><span class="en" lang="en">Japanese soufflé pancakes, homemade gelato, coffee and matcha in Hermanninranta, Helsinki. Every pancake is made after you order it.</span></p>
+      <p class="status" id="status" aria-live="polite"><span class="fi" lang="fi">Ma–Pe 10.30–21.00 · La–Su 12.00–20.00</span><span class="en" lang="en">Mon–Fri 10.30–21.00 · Sat–Sun 12.00–20.00</span></p>
+      <div class="cta">
+        <a class="btn primary" href="#menu"><span class="fi" lang="fi">Katso menu</span><span class="en" lang="en">See the menu</span></a>
+        <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Hermannin+rantatie+25A%2C+00580+Helsinki" target="_blank" rel="noopener"><span class="fi" lang="fi">Reittiohjeet</span><span class="en" lang="en">Get directions</span></a>
+      </div>
+    </div>
+    <div class="plate"><div class="plate-well"><img src="img/hero.jpg" alt="Soufflé pancakes at Shin Cafe" width="796" height="530"></div></div>
+  </div>
+</section>
+
+<section class="facts" aria-label="Perustiedot / Key info">
+  <div class="wrap">
+    <div class="fact"><h2><span class="fi" lang="fi">Aukioloajat</span><span class="en" lang="en">Opening hours</span></h2><p><span class="fi" lang="fi">Ma–Pe 10.30–21.00<br>La–Su 12.00–20.00</span><span class="en" lang="en">Mon–Fri 10.30–21.00<br>Sat–Sun 12.00–20.00</span></p></div>
+    <div class="fact"><h2><span class="fi" lang="fi">Osoite</span><span class="en" lang="en">Address</span></h2><p>Hermannin rantatie 25A<br>00580 Helsinki</p></div>
+    <div class="fact"><h2><span class="fi" lang="fi">Pöytävaraus</span><span class="en" lang="en">Reservations</span></h2><p><span class="fi" lang="fi">Ei tarvita. Tule suoraan paikalle.</span><span class="en" lang="en">Not needed. Just walk in.</span></p></div>
+  </div>
+</section>
+
+<section class="block" id="menu" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2>Menu</h2>
+      <p><span class="fi" lang="fi">Allergioita tai erityisruokavalio? Kysy henkilökunnalta sopivasta annoksesta.</span><span class="en" lang="en">Allergies or a special diet? Ask our staff which dishes suit you.</span></p>
+    </div>
+    <nav class="chips" aria-label="Menu">
+      <a href="#souffle"><span class="fi" lang="fi">Soufflé-pannukakut</span><span class="en" lang="en">Soufflé pancakes</span></a>
+      <a href="#savoury"><span class="fi" lang="fi">Suolaiset</span><span class="en" lang="en">Savoury</span></a>
+      <a href="#gelato">Gelato</a>
+      <a href="#coffee"><span class="fi" lang="fi">Kahvit</span><span class="en" lang="en">Coffee</span></a>
+      <a href="#matcha">Matcha</a>
+      <a href="#chocolate"><span class="fi" lang="fi">Kaakao</span><span class="en" lang="en">Hot chocolate</span></a>
+      <a href="#smoothies"><span class="fi" lang="fi">Smoothiet</span><span class="en" lang="en">Smoothies</span></a>
+    </nav>
+
+    <div class="group" id="souffle">
+      <div class="group-head">
+        <h3><span class="fi" lang="fi">Soufflé-pannukakut</span><span class="en" lang="en">Soufflé pancakes</span></h3>
+        <p class="note"><span class="fi" lang="fi">Kaikki laktoosittomia. Gluteeniton versio +2,00 €.</span><span class="en" lang="en">All lactose-free. Gluten-free version +2,00 €.</span></p>
+      </div>
+      <div class="cards">
+        <article class="dish">
+          <img src="img/classic-nordic.jpg" alt="Classic Nordic" width="396" height="297" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Classic Nordic</h4><span class="price">10,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé ja kerma. Valitse maku (matcha, suklaa, mansikka tai mango) ja kastike (sekamarjahillo tai suklaa).</span><span class="en" lang="en">Soufflé with cream. Choose a flavour (matcha, chocolate, strawberry or mango) and a sauce (mixed berry jam or chocolate).</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/matcha-fluffy.jpg" alt="Matcha Fluffy" width="595" height="446" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Matcha Fluffy</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, matchaganache, 1 pallo matchagelatoa.</span><span class="en" lang="en">Soufflé, matcha ganache, 1 scoop of matcha gelato.</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/majestic-mango.jpg" alt="Majestic Mango" width="595" height="446" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Majestic Mango</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, mango, mangokerma, 1 pallo vaniljagelatoa, karamellikastike.</span><span class="en" lang="en">Soufflé, mango, mango cream, 1 scoop of vanilla gelato, caramel sauce.</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/salted-caramel-banana.jpg" alt="Salted Caramelised Banana" width="595" height="446" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Salted Caramelised Banana</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, karamellisoitu banaani, 1 pallo vaniljagelatoa, banaanileipä, suolakaramellikastike.</span><span class="en" lang="en">Soufflé, caramelised banana, 1 scoop of vanilla gelato, banana bread, salted caramel sauce.</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/chocolate-lover.jpg" alt="Chocolate Lover" width="595" height="446" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Chocolate Lover</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, suklaamousse, 1 pallo suklaagelatoa, suklaaganache, suklaakastike, hasselpähkinärouhe.</span><span class="en" lang="en">Soufflé, chocolate mousse, 1 scoop of chocolate gelato, chocolate ganache, chocolate sauce, hazelnut crunch.</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/very-berries.jpg" alt="Very Berries" width="476" height="357" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Very Berries</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, mansikkakastike, 1 pallo mansikkagelatoa, mansikkaganache, tuoreita marjoja.</span><span class="en" lang="en">Soufflé, strawberry sauce, 1 scoop of strawberry gelato, strawberry ganache, fresh berries.</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/matcha-tiramisu.jpg" alt="Matcha Tiramisu" width="396" height="297" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Matcha Tiramisu</h4><span class="price">15,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, matcha-tiramisukerma, matchajauhe, matchagelato, matcha-shotti, kermavaahto, tuore mansikka.</span><span class="en" lang="en">Soufflé, matcha tiramisu cream, matcha powder, matcha gelato, a matcha shot, whipped cream, fresh strawberry.</span></p>
+            <ul class="tags"><li class="tag tag-vegan"><span class="fi" lang="fi">Vegaaninen</span><span class="en" lang="en">Vegan</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/creme-brulee.jpg" alt="Crème Brûlée" width="476" height="357" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Crème Brûlée</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, crème brûlée -kreemi ja karamellisoitu sokeripinta, 1 pallo gelatoa (vanilja tai mansikka), tuoreita marjoja ja mangoa.</span><span class="en" lang="en">Soufflé, crème brûlée custard with a caramelised sugar top, 1 scoop of gelato (vanilla or strawberry), fresh berries and mango.</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/biscoff.jpg" alt="Biscoff" width="595" height="446" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Biscoff</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, Biscoff-karamellikastike, Biscoff-murua, Lotus-keksi, kermavaahto, vadelma, 1 pallo gelatoa (suklaa tai vanilja).</span><span class="en" lang="en">Soufflé, Biscoff caramel drizzle, Biscoff crumble, Lotus cookie, whipped cream, raspberry, 1 scoop of gelato (chocolate or vanilla).</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/tiramisu.jpg" alt="Tiramisu" width="396" height="297" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Tiramisu</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, tiramisukerma, suklaajauhe, 1 pallo gelatoa (suklaa tai vanilja), espresso.</span><span class="en" lang="en">Soufflé, tiramisu cream, chocolate powder, 1 scoop of gelato (chocolate or vanilla), a single espresso.</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/ube.jpg" alt="Ube" width="446" height="334" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Ube</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, ubekerma, ubekastike, 1 pallo ubegelatoa, kermavaahto, tuoreita mustikoita.</span><span class="en" lang="en">Soufflé, ube cream, ube sauce, 1 scoop of ube gelato, whipped cream, fresh blueberries.</span></p>
+            <ul class="tags"><li class="tag"><span class="fi" lang="fi">Kasvis</span><span class="en" lang="en">Vegetarian</span></li></ul>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group" id="savoury">
+      <div class="group-head">
+        <h3><span class="fi" lang="fi">Suolaiset</span><span class="en" lang="en">Savoury</span></h3>
+        <p class="note"><span class="fi" lang="fi">Pannukakkuannokset laktoosittomia, gluteeniton versio +2,00 €.</span><span class="en" lang="en">Pancake dishes are lactose-free. Gluten-free version +2,00 €.</span></p>
+      </div>
+      <div class="cards">
+        <article class="dish">
+          <img src="img/bacon-eggs.jpg" alt="Bacon &amp; Eggs" width="396" height="297" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Bacon &amp; Eggs</h4><span class="price">12,50 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Soufflé, pekoni ja aito vaahterasiirappi. Lisäksi halutessasi hollandaisekastiketta tai vaahterasiirappia.</span><span class="en" lang="en">Soufflé, bacon and pure maple syrup. Add hollandaise sauce or extra maple syrup if you like.</span></p>
+            
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/english-breakfast.jpg" alt="English Breakfast" width="396" height="297" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>English Breakfast</h4><span class="price">14,00 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Pannukakut, uunipavut, grillattu tomaatti, herkkusieni, hollandaisekastike, oregano ja timjami, salaattia. Lisäksi halutessasi pekonia, fetaa tai puolikas avokado.</span><span class="en" lang="en">Pancakes, baked beans, grilled tomato, mushroom, hollandaise sauce, oregano and thyme, salad. Add bacon, feta or half an avocado if you like.</span></p>
+            
+          </div>
+        </article>
+        <article class="dish">
+          <img src="img/garlic-brioche-bun.jpg" alt="Garlic Brioche Bun" width="446" height="334" loading="lazy">
+          <div class="dish-body">
+            <div class="dish-top"><h4>Garlic Brioche Bun</h4><span class="price">5,99 €</span></div>
+            <p class="desc"><span class="fi" lang="fi">Briossisämpylä, tuorejuusto, valkosipuli, sipuli. Laktoositon.</span><span class="en" lang="en">Brioche bun, cream cheese, garlic, onion. Lactose-free.</span></p>
+            
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="group" id="gelato">
+      <div class="group-head">
+        <h3>Gelato</h3>
+        <p class="note"><span class="fi" lang="fi">Teemme gelaton itse.</span><span class="en" lang="en">We make our own gelato.</span></p>
+      </div>
+      <div class="gelato-wrap">
+        <img src="img/gelato.jpg" alt="Shin Cafe gelato" width="596" height="596" loading="lazy">
+        <div class="list-card">
+          <h3><span class="fi" lang="fi">Gelato ja affogato</span><span class="en" lang="en">Gelato and affogato</span></h3>
+          <ul class="rows">
+<li class="row"><span class="nm">Vanilla<small><span class="fi" lang="fi">Klassinen, kermainen vanilja.</span><span class="en" lang="en">Classic, creamy vanilla.</span></small></span><span class="p">5,00</span></li>
+<li class="row"><span class="nm">Matcha<small><span class="fi" lang="fi">Laadukas matcha, jossa on mieto kitkeryys.</span><span class="en" lang="en">Premium matcha with a gentle bitterness.</span></small></span><span class="p">5,00</span></li>
+<li class="row"><span class="nm">Chocolate<small><span class="fi" lang="fi">Täyteläinen suklaa.</span><span class="en" lang="en">Rich chocolate.</span></small></span><span class="p">5,00</span></li>
+<li class="row"><span class="nm">Strawberry<small><span class="fi" lang="fi">Raikas mansikka.</span><span class="en" lang="en">Fresh strawberry.</span></small></span><span class="p">5,00</span></li>
+<li class="row"><span class="nm">Affogato<small><span class="fi" lang="fi">Kuuma espresso itse tehdyn gelaton päälle.</span><span class="en" lang="en">Hot espresso poured over our gelato.</span></small></span><span class="p">8,00</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="group" id="drinks">
+      <div class="group-head">
+        <h3><span class="fi" lang="fi">Juomat</span><span class="en" lang="en">Drinks</span></h3>
+      </div>
+      <div class="drinks">
+        <div class="list-card" id="coffee">
+          <h3><span class="fi" lang="fi">Kahvit</span><span class="en" lang="en">Coffee</span></h3>
+          <ul class="rows">
+            <li class="row row-sl rows-head" aria-hidden="true"><span></span><span class="p">S</span><span class="p">L</span></li>
+<li class="row row-sl"><span class="nm">Espresso</span><span class="p">3,00</span><span class="p">3,50</span></li>
+<li class="row row-sl"><span class="nm">Espresso Macchiato<small><span class="fi" lang="fi">Espresso ja maitovaahtoa.</span><span class="en" lang="en">Espresso with a spoon of milk foam.</span></small></span><span class="p">4,00</span><span class="p">5,50</span></li>
+<li class="row row-sl"><span class="nm">Latte</span><span class="p">4,80</span><span class="p">5,50</span></li>
+<li class="row row-sl"><span class="nm">Latte Banana Bread<small><span class="fi" lang="fi">Latte banaanileipäsiirapilla.</span><span class="en" lang="en">Latte with banana bread syrup.</span></small></span><span class="p">5,00</span><span class="p">6,00</span></li>
+<li class="row row-sl"><span class="nm">Cappuccino</span><span class="p">4,90</span><span class="p">5,50</span></li>
+<li class="row row-sl"><span class="nm">Flat White<small><span class="fi" lang="fi">Tupla-ristretto ja mikrovaahto.</span><span class="en" lang="en">Double ristretto with microfoam.</span></small></span><span class="p">4,90</span><span class="p">5,50</span></li>
+<li class="row row-sl"><span class="nm">Americano</span><span class="p">4,20</span><span class="p">4,00</span></li>
+<li class="row row-sl"><span class="nm">Vietnamese Coffee<small><span class="fi" lang="fi">Vahva kahvi ja makeutettu kondensoitu maito.</span><span class="en" lang="en">Strong coffee over sweetened condensed milk.</span></small></span><span class="p">5,50</span><span class="p">6,50</span></li>
+<li class="row row-sl"><span class="nm">Vietnamese Salt Coffee<small><span class="fi" lang="fi">Vietnamilainen kahvi ja suolainen kermavaahto.</span><span class="en" lang="en">Vietnamese coffee with salted cream foam.</span></small></span><span class="p">–</span><span class="p">6,50</span></li>
+<li class="row row-sl"><span class="nm">Ube Latte<small><span class="fi" lang="fi">Ube-latte, espresso ja kermavaahto.</span><span class="en" lang="en">Purple yam latte with espresso and whipped cream.</span></small></span><span class="p p-one">6,00</span></li>
+<li class="row row-sl"><span class="nm">Filter Coffee<small><span class="fi" lang="fi">Suodatinkahvi.</span><span class="en" lang="en">Filter coffee.</span></small></span><span class="p p-one">2,80</span></li>
+<li class="row row-sl"><span class="nm">Tea<small><span class="fi" lang="fi">Valitse laatu.</span><span class="en" lang="en">Choose your blend.</span></small></span><span class="p p-one">3,00</span></li>
+          </ul>
+        </div>
+        <div class="stack">
+          <div class="list-card" id="matcha">
+            <h3>Matcha</h3>
+            <ul class="rows">
+<li class="row"><span class="nm">Matcha Latte<small><span class="fi" lang="fi">Seremoniallinen matcha ja höyrytetty maito.</span><span class="en" lang="en">Ceremonial matcha whisked with steamed milk.</span></small></span><span class="p">6,50</span></li>
+<li class="row"><span class="nm">Mango Matcha Latte<small><span class="fi" lang="fi">Mangosose ja matcha latte.</span><span class="en" lang="en">Mango purée under a matcha latte.</span></small></span><span class="p">6,50</span></li>
+<li class="row"><span class="nm">Strawberry Matcha Latte<small><span class="fi" lang="fi">Mansikkahillo, maito ja matcha.</span><span class="en" lang="en">Strawberry compote, milk and matcha.</span></small></span><span class="p">6,50</span></li>
+<li class="row"><span class="nm">Ube Matcha Latte<small><span class="fi" lang="fi">Ube ja matcha.</span><span class="en" lang="en">Ube and matcha.</span></small></span><span class="p">6,50</span></li>
+<li class="row"><span class="nm">Cold Foam Matcha Latte<small><span class="fi" lang="fi">Jäinen matcha ja kylmä maitovaahto.</span><span class="en" lang="en">Iced matcha topped with cold foam.</span></small></span><span class="p">7,50</span></li>
+<li class="row"><span class="nm">Hot Chocolate Matcha<small><span class="fi" lang="fi">Kaakao ja matcha.</span><span class="en" lang="en">Hot chocolate and matcha.</span></small></span><span class="p">7,50</span></li>
+<li class="row"><span class="nm">Banana Bread Matcha Latte<small><span class="fi" lang="fi">Matcha latte banaanileipäsiirapilla.</span><span class="en" lang="en">Matcha latte with banana bread syrup.</span></small></span><span class="p">7,50</span></li>
+            </ul>
+          </div>
+          <div class="list-card" id="chocolate">
+            <h3><span class="fi" lang="fi">Kaakao</span><span class="en" lang="en">Hot chocolate</span></h3>
+            <ul class="rows">
+              <li class="row row-sl rows-head" aria-hidden="true"><span></span><span class="p">S</span><span class="p">L</span></li>
+<li class="row row-sl"><span class="nm">Classic Hot Chocolate<small><span class="fi" lang="fi">Kermavaahdolla.</span><span class="en" lang="en">With whipped cream.</span></small></span><span class="p">5,50</span><span class="p">6,50</span></li>
+<li class="row row-sl"><span class="nm">Cloudy Hot Chocolate<small><span class="fi" lang="fi">Vaahtokarkeilla.</span><span class="en" lang="en">With marshmallow puff.</span></small></span><span class="p">6,50</span><span class="p">7,50</span></li>
+            </ul>
+          </div>
+          <div class="list-card" id="smoothies">
+            <h3><span class="fi" lang="fi">Smoothiet</span><span class="en" lang="en">Smoothies</span> <span class="p">6,50 €</span></h3>
+            <ul class="rows">
+<li class="row row-plain"><span class="nm">Berry Breeze<small><span class="fi" lang="fi">Mansikka, mustikka, banaani, jogurtti, hunaja.</span><span class="en" lang="en">Strawberry, blueberry, banana, yogurt, honey.</span></small></span></li>
+<li class="row row-plain"><span class="nm">Tropical Green Energizer<small><span class="fi" lang="fi">Pinaatti, mango, ananas, banaani, kookosvesi.</span><span class="en" lang="en">Spinach, mango, pineapple, banana, coconut water.</span></small></span></li>
+<li class="row row-plain"><span class="nm">Peanut Butter Power<small><span class="fi" lang="fi">Banaani, maapähkinävoi, kaakao, kaurajuoma, hunaja.</span><span class="en" lang="en">Banana, peanut butter, cocoa, oat drink, honey.</span></small></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block know" aria-labelledby="know-h">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="know-h"><span class="fi" lang="fi">Hyvä tietää</span><span class="en" lang="en">Good to know</span></h2></div>
+    <div class="grid3">
+      <div>
+        <h3><span class="fi" lang="fi">Tehdään tilauksesta</span><span class="en" lang="en">Made to order</span></h3>
+        <p><span class="fi" lang="fi">Vatkaamme ja paistamme jokaisen soufflén vasta, kun tilaat. Siksi se vie hetken pidempään kuin tavallinen pannukakku.</span><span class="en" lang="en">We whip and bake each soufflé after you order, so it takes a little longer than a regular pancake.</span></p>
+      </div>
+      <div>
+        <h3><span class="fi" lang="fi">Gluteeniton ja vegaaninen</span><span class="en" lang="en">Gluten-free and vegan</span></h3>
+        <p><span class="fi" lang="fi">Jokaisesta soufflé-annoksesta saa gluteenittoman version (+2,00 €). Matcha Tiramisu on vegaaninen.</span><span class="en" lang="en">Every soufflé dish comes in a gluten-free version (+2,00 €). Matcha Tiramisu is vegan.</span></p>
+      </div>
+      <div>
+        <h3><span class="fi" lang="fi">Itse tehty</span><span class="en" lang="en">Homemade</span></h3>
+        <p><span class="fi" lang="fi">Teemme gelaton ja smoothiet itse. Affogatossa kuuma espresso kaadetaan gelaton päälle.</span><span class="en" lang="en">We make our own gelato and smoothies. For affogato, we pour hot espresso over the gelato.</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="block" aria-labelledby="gal-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="gal-h"><span class="fi" lang="fi">Keittiöstä</span><span class="en" lang="en">From the kitchen</span></h2>
+      <p><span class="fi" lang="fi">Lisää kuvia Instagramissa</span><span class="en" lang="en">More photos on Instagram</span> <a href="https://www.instagram.com/shincafehelsinki/" target="_blank" rel="noopener">@shincafehelsinki</a></p>
+    </div>
+    <div class="gallery"><figure><img src="img/g-matcha.jpg" alt="Matcha soufflé with a matcha drink" width="396" height="596" loading="lazy"></figure><figure><img src="img/g-love-berry.jpg" alt="Berry soufflé" width="396" height="596" loading="lazy"></figure><figure><img src="img/g-strawberry.jpg" alt="Strawberry soufflé with a latte" width="396" height="596" loading="lazy"></figure><figure><img src="img/g-matcha-smoothie.jpg" alt="Soufflé with a matcha smoothie" width="396" height="596" loading="lazy"></figure></div>
+  </div>
+</section>
+
+<section class="visit" id="visit">
+  <div class="wrap">
+    <div class="visit-card">
+      <h2><span class="fi" lang="fi">Löydä meidät</span><span class="en" lang="en">Find us</span></h2>
+      <p class="addr">Hermannin rantatie 25A<br>00580 Helsinki</p>
+      <a class="btn primary" href="https://www.google.com/maps/search/?api=1&query=Hermannin+rantatie+25A%2C+00580+Helsinki" target="_blank" rel="noopener"><span class="fi" lang="fi">Reittiohjeet</span><span class="en" lang="en">Get directions</span></a>
+      <dl class="contact">
+        <dt><span class="fi" lang="fi">Puhelin</span><span class="en" lang="en">Phone</span></dt><dd><a href="tel:+358503054957">050 305 4957</a></dd>
+        <dt><span class="fi" lang="fi">Sähköposti</span><span class="en" lang="en">Email</span></dt><dd><a href="mailto:hello@shincafe.net">hello@shincafe.net</a></dd>
+        <dt>Instagram</dt><dd><a href="https://www.instagram.com/shincafehelsinki/" target="_blank" rel="noopener">@shincafehelsinki</a></dd>
+        <dt>Facebook</dt><dd><a href="https://www.facebook.com/61584552097683/" target="_blank" rel="noopener">Shin Cafe</a></dd>
+      </dl>
+    </div>
+    <div class="hours-card">
+      <h3><span class="fi" lang="fi">Aukioloajat</span><span class="en" lang="en">Opening hours</span></h3>
+      <table class="hours">
+<tr data-day="1"><th scope="row"><span class="fi" lang="fi">Maanantai</span><span class="en" lang="en">Monday</span></th><td>10.30–21.00</td></tr>
+<tr data-day="2"><th scope="row"><span class="fi" lang="fi">Tiistai</span><span class="en" lang="en">Tuesday</span></th><td>10.30–21.00</td></tr>
+<tr data-day="3"><th scope="row"><span class="fi" lang="fi">Keskiviikko</span><span class="en" lang="en">Wednesday</span></th><td>10.30–21.00</td></tr>
+<tr data-day="4"><th scope="row"><span class="fi" lang="fi">Torstai</span><span class="en" lang="en">Thursday</span></th><td>10.30–21.00</td></tr>
+<tr data-day="5"><th scope="row"><span class="fi" lang="fi">Perjantai</span><span class="en" lang="en">Friday</span></th><td>10.30–21.00</td></tr>
+<tr data-day="6"><th scope="row"><span class="fi" lang="fi">Lauantai</span><span class="en" lang="en">Saturday</span></th><td>12.00–20.00</td></tr>
+<tr data-day="7"><th scope="row"><span class="fi" lang="fi">Sunnuntai</span><span class="en" lang="en">Sunday</span></th><td>12.00–20.00</td></tr>
+      </table>
+      <p class="walkin"><span class="fi" lang="fi">Ei pöytävarausta. Tule suoraan paikalle.</span><span class="en" lang="en">No reservation needed. Just walk in.</span></p>
+    </div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <img src="img/logo.png" alt="" width="320" height="264">
+    <span>Shin Cafe · Hermannin rantatie 25A, 00580 Helsinki</span>
+    <span>© 2026 Shin Cafe</span>
+    <span class="social"><a href="https://www.instagram.com/shincafehelsinki/" target="_blank" rel="noopener">Instagram</a><a href="https://www.facebook.com/61584552097683/" target="_blank" rel="noopener">Facebook</a></span>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var root = document.documentElement;
+  function setLang(l) {
+    root.setAttribute('data-lang', l);
+    root.setAttribute('lang', l);
+    document.querySelectorAll('.lang button').forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-set') === l ? 'true' : 'false');
+    });
+    try { localStorage.setItem('shin-lang', l); } catch (err) {}
+  }
+  var saved = null;
+  try { saved = localStorage.getItem('shin-lang'); } catch (err) {}
+  var nav = (navigator.language || 'fi').toLowerCase();
+  setLang(saved === 'fi' || saved === 'en' ? saved : (nav.indexOf('fi') === 0 ? 'fi' : 'en'));
+  document.querySelectorAll('.lang button').forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-set')); });
+  });
+
+  // Opening status, Helsinki time. Day 1 = Monday ... 7 = Sunday; minutes from midnight.
+  var HOURS = {1: [630, 1260], 2: [630, 1260], 3: [630, 1260], 4: [630, 1260], 5: [630, 1260], 6: [720, 1200], 7: [720, 1200]};
+  function fmt(m) { return String(Math.floor(m / 60)).padStart(2, '0') + '.' + String(m % 60).padStart(2, '0'); }
+  function status(day, min) {
+    var h = HOURS[day];
+    if (min >= h[0] && min < h[1]) return { open: true, when: 'now', t: h[1] };
+    if (min < h[0]) return { open: false, when: 'today', t: h[0] };
+    return { open: false, when: 'tomorrow', t: HOURS[day % 7 + 1][0] };
+  }
+  window.shinStatus = status;
+  try {
+    var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Helsinki', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+    var get = function (k) { return (parts.find(function (p) { return p.type === k; }) || {}).value; };
+    var day = {Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6, Sun: 7}[get('weekday')];
+    var min = parseInt(get('hour'), 10) * 60 + parseInt(get('minute'), 10);
+    var s = status(day, min), tm = fmt(s.t), fi, en;
+    if (s.when === 'now') { fi = 'Avoinna nyt · suljemme klo ' + tm; en = 'Open now · closes at ' + tm; }
+    else if (s.when === 'today') { fi = 'Suljettu · avaamme tänään klo ' + tm; en = 'Closed · opens today at ' + tm; }
+    else { fi = 'Suljettu · avaamme huomenna klo ' + tm; en = 'Closed · opens tomorrow at ' + tm; }
+    var el = document.getElementById('status');
+    el.innerHTML = '<span class="fi" lang="fi">' + fi + '</span><span class="en" lang="en">' + en + '</span>';
+    el.classList.add(s.open ? 'is-open' : 'is-closed');
+    var row = document.querySelector('.hours tr[data-day="' + day + '"]');
+    if (row) row.classList.add('today');
+  } catch (err) {}
+})();
+</script>
+</body>
+</html>
